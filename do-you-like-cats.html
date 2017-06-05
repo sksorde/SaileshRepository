@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Apply to pet Craigs cats</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>Do you like cats?</h1>
+
+          <fieldset>
+            <div class="radio">
+              <label>
+                <input type="radio" name="do-you-like-cats" id="do-you-like-cats-yest" value="Yes" checked>
+                Yes
+              </label>
+            </div>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="do-you-like-cats" id="do-you-like-cats-no" value="No">
+                No
+              </label>
+            </div>
+          </fieldset>
+
+          <a id="continueButton" href="success.html" class="btn btn-primary">Continue</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <!-- This script changes the link of the continue button based on the Yes/No radios -->
+    <script>
+      // When you click on an input where  name="do-you-like-cats", run the following function
+      $(document).on('click', 'input[name="do-you-like-cats"]', function () {
+        // Create a variable called answer which is the equivalent to the value of the radio you pressed
+        var answer = $(this).val();
+
+        // Check if answer is equal to 'No', if it is change the link on the button to fail.html
+        if (answer === 'No') {
+          return $('#continueButton').attr('href', 'fail.html');
+        }
+
+        // If the answer is not No, set the link to success.html
+        $('#continueButton').attr('href', 'success.html');
+      });
+    </script>
+  </body>
+</html>
